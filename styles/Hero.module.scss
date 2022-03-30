@@ -1,0 +1,15 @@
+.hero {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero__logo {
+	display: flex;
+	flex-direction: column;
+
+	h1 {
+		color: white;
+	}
+}
