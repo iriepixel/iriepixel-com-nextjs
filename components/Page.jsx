@@ -1,21 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { Header } from './Header';
-import '../styles/Page.module.scss';
+import { Header } from "./Header";
+import "../styles/Page.module.scss";
 
 export const Page = () => {
-  const [user, setUser] = React.useState();
+	const [user, setUser] = React.useState();
 
-  return (
-    <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
-      />
+	return (
+		<article>
+			<Header user={user} onLogin={() => setUser({ name: "Jane Doe" })} onLogout={() => setUser(undefined)} onCreateAccount={() => setUser({ name: "Jane Doe" })} />
 
-      <section>
+			{/* <section>
         <h2>Pages in Storybook</h2>
         <p>
           We recommend building UIs with a{' '}
@@ -63,7 +58,7 @@ export const Page = () => {
           </svg>
           Viewports addon in the toolbar
         </div>
-      </section>
-    </article>
-  );
+      </section> */}
+		</article>
+	);
 };
