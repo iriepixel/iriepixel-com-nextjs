@@ -1,11 +1,16 @@
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 // import Image from "next/image";
 import { Hero } from "../components/Hero";
 import styles from "../styles/Home.module.scss";
 
-// #171717
+type Data = {
+  feed_meta: object;
+};
 
-export default function Home() {
+const Home: NextPage<{ data: Data }> = (props) => {
+  console.log(props.data);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,4 +27,23 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  try {
+    // const { id } = params;
+    const result = await fetch(`https://polaris.brighterir.com/public/alfa_financial_soft/price_feed/json_price?key=4vw67l86`);
+    const data: Data = await result.json();
+
+    return {
+      props: { data },
+    };
+  } catch {
+    res.statusCode = 404;
+    return {
+      props: {},
+    };
+  }
+};
+
+export default Home;
